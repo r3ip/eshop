@@ -1,0 +1,15 @@
+<div class="card">
+  <img [src]="product.image" class="card-img-top" height="300px" alt="{{product.title}}" />
+  <div class="card-body">
+    <h5 class="card-title">{{product.title}}</h5>
+    <p>Price: <strong>${{product.price}}</strong></p>
+    <div class="text-center">
+      <a type="button" class="btn btn-primary me-2" (click)="addCartShopping()">
+        <i class="fa-solid fa-cart-plus"></i>
+      </a>
+      <a type="button" class="btn btn-success" [routerLink]="[product.id]">
+        <i class="fa-regular fa-eye"></i>
+      </a>
+    </div>
+  </div>
+</div>

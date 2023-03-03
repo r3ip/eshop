@@ -1,0 +1,55 @@
+<button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showModal()">
+  <i class="fa-solid fa-cart-shopping" style="font-size: 2em;"></i>
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    {{badges}}
+  </span>
+</button>
+
+<div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">titulo</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" id="close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Item</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Count</th>
+                  <th scope="col">Total</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of products">
+                  <th scope="row" ><img [src]="item.image" height="100px" width="100px"></th>
+                  <th scope="row" >{{item.title}}</th>
+                  <th scope="row" >${{item.price}}</th>
+                  <th scope="row" >{{item.count}}</th>
+                  <th scope="row" >${{item.count * item.price}}</th>
+                  <th colspan="2" >
+                    <div class="text-center">
+                      <a type="button" class="btn btn-danger me-2" (click)="deleteItemStorage(item.id)">
+                        <i class="fa-solid fa-trash"></i>
+                      </a>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <h2 class="text-end">Total ${{total}}</h2>
+        </div>
+      </div>
+      <div class="text-center py-3">
+        <button *ngIf="disable === false" type="button" class="btn btn-primary me-2" (click)="buy()">
+          Buy <i class="fa-solid fa-cart-plus"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

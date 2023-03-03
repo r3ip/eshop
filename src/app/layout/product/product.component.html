@@ -1,0 +1,21 @@
+<div class="py-5 container">
+  <div class="card" *ngIf="product">
+    <div class="d-flex justify-content-center mt-2">
+      <img [src]="product.image" height="500px" width="500px"/>
+    </div>
+    <div class="card-body">
+      <h2 class="card-title">{{product.title}}</h2>
+      <p>Description: {{product.description}}</p>
+      <p>Category: {{product.category}}</p>
+      <p>Price: <strong>${{product.price}}</strong></p>
+      <div class="text-center">
+        <a class="btn btn-danger me-2" [routerLink]="['/products']">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <a type="button" class="btn btn-primary me-2" (click)="addCartShopping()">
+          <i class="fa-solid fa-cart-plus"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

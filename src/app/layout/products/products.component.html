@@ -1,0 +1,11 @@
+<div class="px-4 py-5">
+  <div class="container">
+    <app-categories [categories]="categories" (event)="captureCategory($event)"></app-categories>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col" *ngFor="let product of products">
+        <app-card [product]="product"></app-card>
+      </div>
+    </div>
+  </div>
+</div>
